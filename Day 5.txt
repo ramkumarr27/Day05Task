@@ -1,0 +1,353 @@
+DAY 5 :  
+
+IN ANONYMOUS FUNCTION && IIFE
+------------------------------
+
+a) Print odd numbers in an array
+
+     let n = [2,3,8,5,7,6,10] ;
+     
+    //Anonymous Function
+    
+     let oddNum = function(){
+         let oddnos =[];
+         for(let i=0;i<n.length;i++){
+             if(n[i]%2 !== 0){
+                oddnos.push(n[i])
+             }
+         }
+         console.log(oddnos);
+     }
+  oddNum(); 
+
+    //IIFE 
+        (function(){
+         let oddnos =[];
+         for(let i=0;i<n.length;i++){
+             if(n[i]%2 !== 0){
+                oddnos.push(n[i])
+             }
+         }
+         console.log(oddnos);
+     })()
+
+
+//b) / Convert all the strings to title caps in a string array
+
+let arr = ['all','is','well'];
+   
+   
+   //Anonymous Function
+   let titleCaps =function(){
+   let arr2 =[];
+   for(let i=0;i<arr.length;i++){
+       const m =arr[i].split('').splice(1).join('');
+      arr2.push(arr[i].charAt(0).toUpperCase()+m);
+   }
+   console.log(arr2.join(' '));
+   }
+   titleCaps();
+   
+   //IIFE 
+   (function(){
+   let arr2 =[];
+   for(let i=0;i<arr.length;i++){
+       const m =arr[i].split('').splice(1).join('');
+      arr2.push(arr[i].charAt(0).toUpperCase()+m);
+   }
+   console.log(arr2.join(' '));
+   })()
+
+
+// c) Sum of all numbers in an array
+let n = [2,3,8,5,7,6,10] ;
+
+//Anonymous Function
+const addAll =function(){
+    const ini =0;
+const add = n.reduce((acc,cur)=> acc + cur ,ini);
+console.log(add)
+}
+
+addAll();
+
+//IIFE
+(function(){
+    const ini =0;
+const add = n.reduce((acc,cur)=> acc + cur ,ini);
+console.log(add)
+})()
+
+
+// d) Return all the prime numbers in an array
+
+ let n = [2,3,8,5,7,6,10] ;
+
+ //Anonymous Function
+let primeArr = function(){
+    let prime =[];
+    let status = true;
+
+for(let i=0;i<n.length;i++){
+    if(n[i] >1){
+       for(let j=2;j<n[i];j++){
+        if(n[i]%j===0){
+            status = false;
+            break
+        }
+    }
+    if(status === true){
+        prime.push(n[i]);
+    }
+    status =true; 
+    }
+    
+}
+console.log(prime);
+}
+
+primeArr();
+
+
+// IIFE
+
+(function(){
+    let prime =[];
+    let status = true;
+
+for(let i=0;i<n.length;i++){
+    if(n[i] >1){
+       for(let j=2;j<n[i];j++){
+        if(n[i]%j===0){
+            status = false;
+            break
+        }
+    }
+    if(status === true){
+        prime.push(n[i]);
+    }
+    status =true; 
+    }
+    
+}
+console.log(prime);
+})()
+
+
+    
+//e)Return all the palindromes in an array
+    
+let arr = ['abc','car','ada','racecar','mam'];
+
+// Anonymous function
+let palArr = function(){
+    let palindrome = [];
+for(let i=0;i<arr.length;i++){
+    let arr2 = arr[i].split('').reverse();
+    
+    if(arr[i] === arr2.join('')){
+        palindrome.push(arr[i]);
+    }
+}
+
+console.log(palindrome);
+}
+ palArr();
+
+//IIFE
+
+(function(){
+    let palindrome = [];
+for(let i=0;i<arr.length;i++){
+    let arr2 = arr[i].split('').reverse();
+    
+    if(arr[i] === arr2.join('')){
+        palindrome.push(arr[i]);
+    }
+}
+
+console.log(palindrome);
+})()
+
+
+
+//f) Return median of two sorted arrays of the same size.
+
+let a = [1, 12, 15, 26, 38];
+let b = [2, 13, 17, 30, 45];
+
+//Anonymous function
+
+let addMed = function(){
+    let c = [...a,...b];
+    let sorted = c.sort((a,b)=>{
+        return a-b;
+    })
+    let med1 = Math.round(sorted.length/2 -1 );
+    let med2 = Math.round(sorted.length/2);
+    let avg =(sorted[med1]+sorted[med2]) /2;
+    console.log(avg)
+}
+
+addMed();
+
+//IIFE
+(function(){
+    let c = [...a,...b];
+    let sorted = c.sort((a,b)=>{
+        return a-b;
+    })
+    let med1 = Math.round(sorted.length/2 -1 );
+    let med2 = Math.round(sorted.length/2);
+    let avg =(sorted[med1]+sorted[med2]) /2;
+    console.log(avg)
+})()
+
+
+
+
+    
+ //g) Remove duplicates from an array 
+ 
+    let n = [2,3,8,5,0,2,5,3,4] ;
+
+//Anonymous Function
+
+  let removeDup = function(){
+      let orig = [...new Set(n)];
+      console.log(orig)
+  }  
+
+removeDup();
+ 
+//IIFE
+(function(){
+      let orig = [...new Set(n)];
+      console.log(orig);
+  }  
+)()
+
+   
+//h)Rotate an array by k times
+
+ let n = [2,3,8,5,7,6,10] ;
+ let k =3;
+
+ //Anonymous Function
+ 
+ let rotate = function(){
+     let newArr=[];
+
+ for(let i=0;i<k;i++){
+     let m = n.shift();
+     let newArr = n.push(m);
+ }
+     console.log(n)
+ }
+ 
+rotate();
+
+//IIFE
+( function(){
+     let newArr=[];
+
+ for(let i=0;i<k;i++){
+     let m = n.shift();
+     let newArr = n.push(m);
+ }
+     console.log(n)
+ })()
+
+
+
+IN ARROW FUNCTION
+------------------
+
+// Print odd numbers in an array
+let n = [2,3,8,5,7,6,10]
+let odd =()=>{
+     let oddnos =[];
+         for(let i=0;i<n.length;i++){
+             if(n[i]%2 !== 0){
+                oddnos.push(n[i])
+             }
+         }
+         console.log(oddnos);
+}
+odd();
+
+//b) Convert all the strings to title caps in a string array
+
+let arr = ['all','is','well'];
+
+    let titleCaps =()=>{
+   let arr2 =[];
+   for(let i=0;i<arr.length;i++){
+       const m =arr[i].split('').splice(1).join('');
+      arr2.push(arr[i].charAt(0).toUpperCase()+m);
+   }
+   console.log(arr2.join(' '));
+   }
+   titleCaps();
+
+
+c) Sum of all numbers in an array
+let n = [2,3,8,5,7,6,10] ;
+
+
+const addAll =()=>{
+    const ini =0;
+const add = n.reduce((acc,cur)=> acc + cur ,ini);
+console.log(add)
+}
+
+addAll();
+
+
+// d) Return all the prime numbers in an array
+
+ let n = [2,3,8,5,7,6,10] ;
+
+
+let primeArr = ()=>{
+    let prime =[];
+    let status = true;
+
+for(let i=0;i<n.length;i++){
+    if(n[i] >1){
+       for(let j=2;j<n[i];j++){
+        if(n[i]%j===0){
+            status = false;
+            break
+        }
+    }
+    if(status === true){
+        prime.push(n[i]);
+    }
+    status =true; 
+    }
+    
+}
+console.log(prime);
+}
+
+primeArr();
+
+
+//e)Return all the palindromes in an array
+    
+let arr = ['abc','car','ada','racecar','mam'];
+
+let palArr = ()=>{
+    let palindrome = [];
+for(let i=0;i<arr.length;i++){
+    let arr2 = arr[i].split('').reverse();
+    
+    if(arr[i] === arr2.join('')){
+        palindrome.push(arr[i]);
+    }
+}
+
+console.log(palindrome);
+}
+ palArr();
